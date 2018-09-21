@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 namespace BazaDannyh_aud
 {
     public class BD
@@ -29,7 +30,20 @@ namespace BazaDannyh_aud
                 con.Close();
 
         }
+        public static DataTable GetTable(string t)
+        {
+            
+            using (con = new SqlConnection(connect))
+            {
+                SqlCommand comm = new SqlCommand("select * from " + t, con);
 
+                SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                return dt;
+            }
+        }
 
 
     }
