@@ -36,14 +36,10 @@ namespace BazaDannyh_aud
             using (SqlConnection con = new SqlConnection(connect))
             {
 
-            comboBox1.ValueMember = "Id_prod";
-            comboBox1.DisplayMember = "name_prod";
-            comboBox1.DataSource = BD.GetTable("Product");
-
-                
             comboBox2.ValueMember = "Id_categ";
             comboBox2.DisplayMember = "name_categ";
             comboBox2.DataSource = BD.GetTable("Category");
+
             } 
 
         }
